@@ -15,22 +15,22 @@ $result = mysqli_query($conn, $query);
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>Product ID</th>
+                    <th>Time ID</th>
+                    <th>Vendor ID</th>
+                    <th>Order Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Line Total</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>Product ID</th>
+                    <th>Time ID</th>
+                    <th>Vendor ID</th>
+                    <th>Order Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Line Total</th>
                 </tr>
             </tfoot>
             <tbody>
