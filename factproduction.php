@@ -11,38 +11,34 @@
 
     <table id="libTables" class="display">
         <thead>
-                <tr>
-                    <th>Product ID</th>
-                    <th>Time ID</th>
-                    <th>Vendor ID</th>
-                    <th>Order Quantity</th>
-                    <th>Unit Price</th>
-                    <th>Line Total</th>
-                </tr>
+            <tr>
+                <th>Product ID</th>
+                <th>Time ID</th>
+                <th>Total Quantity Product</th>
+            </tr>
         </thead>
-            <tbody>
-            </tbody>
+        <tbody>
+        </tbody>
     </table>
+
     <script>
         $(document).ready(function () {
             $('#libTables').DataTable({
                 "processing": true,
                 "serverSide": true,
                 "ajax": {
-                    "url": "datapurchase.php", // Ganti dengan URL ke file server-side Anda
+                    "url": "dataproduction.php", // Ganti dengan URL ke file server-side Anda
                     "type": "POST"
                 },
                 "deferRender": true,
                 "columns": [
                     { "data": "productID" },
                     { "data": "timeID" },
-                    { "data": "VendorID" },
-                    { "data": "orderQty" },
-                    { "data": "unitPrice" },
-                    { "data": "lineTotal" }
+                    { "data": "totalqtyproduct" }
                 ]
             });
         });
     </script>
+
 </body>
 </html>

@@ -11,38 +11,44 @@
 
     <table id="libTables" class="display">
         <thead>
-                <tr>
-                    <th>Product ID</th>
-                    <th>Time ID</th>
-                    <th>Vendor ID</th>
-                    <th>Order Quantity</th>
-                    <th>Unit Price</th>
-                    <th>Line Total</th>
-                </tr>
+            <tr>
+                <th>Sales ID</th>
+                <th>Product ID</th>
+                <th>Customer ID</th>
+                <th>Time ID</th>
+                <th>Order Quantity</th>
+                <th>Unit Price</th>
+                <th>Line Total</th>
+                <th>Territory ID</th>
+            </tr>
         </thead>
-            <tbody>
-            </tbody>
+        <tbody>
+        </tbody>
     </table>
+
     <script>
         $(document).ready(function () {
             $('#libTables').DataTable({
                 "processing": true,
                 "serverSide": true,
                 "ajax": {
-                    "url": "datapurchase.php", // Ganti dengan URL ke file server-side Anda
+                    "url": "datasales.php", // Ganti dengan URL ke file server-side Anda
                     "type": "POST"
                 },
                 "deferRender": true,
                 "columns": [
-                    { "data": "productID" },
-                    { "data": "timeID" },
-                    { "data": "VendorID" },
-                    { "data": "orderQty" },
-                    { "data": "unitPrice" },
-                    { "data": "lineTotal" }
+                    { "data": "SalesID" },
+                    { "data": "ProductID" },
+                    { "data": "CustomerID" },
+                    { "data": "TimeID" },
+                    { "data": "OrderQty" },
+                    { "data": "UnitPrice" },
+                    { "data": "LineTotal" },
+                    { "data": "TerritoryID" }
                 ]
             });
         });
     </script>
+
 </body>
 </html>
