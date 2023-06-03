@@ -4526,6 +4526,7 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  background-color: turquoise;
 }
 
 .card-title {
@@ -10451,7 +10452,7 @@ a:focus {
 .sidebar .sidebar-brand {
   height: 4.375rem;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 800;
   padding: 1.5rem 1rem;
   text-align: center;
