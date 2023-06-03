@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Data Sales</title>
     <meta name="viewport" content="width=device=width, initial-scale=1">
@@ -7,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 </head>
+
 <body>
 
     <table id="libTables" class="display">
@@ -27,7 +29,7 @@
     </table>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#libTables').DataTable({
                 "processing": true,
                 "serverSide": true,
@@ -36,19 +38,35 @@
                     "type": "POST"
                 },
                 "deferRender": true,
-                "columns": [
-                    { "data": "SalesID" },
-                    { "data": "ProductID" },
-                    { "data": "CustomerID" },
-                    { "data": "TimeID" },
-                    { "data": "OrderQty" },
-                    { "data": "UnitPrice" },
-                    { "data": "LineTotal" },
-                    { "data": "TerritoryID" }
+                "columns": [{
+                        "data": "SalesID"
+                    },
+                    {
+                        "data": "ProductID"
+                    },
+                    {
+                        "data": "CustomerID"
+                    },
+                    {
+                        "data": "TimeID"
+                    },
+                    {
+                        "data": "OrderQty"
+                    },
+                    {
+                        "data": "UnitPrice"
+                    },
+                    {
+                        "data": "LineTotal"
+                    },
+                    {
+                        "data": "TerritoryID"
+                    }
                 ]
             });
         });
     </script>
 
 </body>
+
 </html>
