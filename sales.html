@@ -33,9 +33,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-solid fa-bicycle"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-1">Adventureworks</div>
             </a>
 
             <!-- Divider -->
@@ -44,7 +44,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-solid fa-house-user"></i>
                     <span>Dashboard</span></a>
             </li>
 
@@ -62,17 +62,40 @@
                     <i class="fas fa-solid fa-box"></i>
                     <span>Product</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="sales.html">
                     <i class="fas fa-solid fa-chart-pie"></i>
                     <span>Sales</span></a>
             </li>
                  
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="purchase.html">
                     <i class="fas fa-solid fa-comment-dollar"></i>
                     <span>Purchase</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Table
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <span>Information Table</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="factProduct.html">factProduct</a>
+                        <a class="collapse-item" href="factSales.html">factSales</a>
+                        <a class="collapse-item" href="factPurchase.html">factPurchase</a>
+                    </div>
+                </div>
             </li>
            
 
@@ -291,6 +314,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
                     <div class="row">
@@ -298,22 +322,8 @@
                         <!-- Content Column -->
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
-                                <div class="card-header py-4">
+                                <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Monthly Sales</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myBarChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Content Column -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-4">
-                                    <h6 class="m-0 font-weight-bold text-primary">Tota Sales Order by Year</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
@@ -350,6 +360,22 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Content Column -->
+                        <div class="col-xl-12 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-4">
+                                    <h6 class="m-0 font-weight-bold text-primary">Total Sales Order by Year</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
                         
 
                             
