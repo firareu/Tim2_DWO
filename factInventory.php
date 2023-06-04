@@ -21,7 +21,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <?php include 'mainfactpurchase.php' ?>
+                <?php include 'mainfactinventory.php' ?>
 
 
             </div>

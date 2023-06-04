@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <?php include 'head.php'; ?>
 
 <body id="page-top">
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -21,24 +23,21 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <?php include 'mainfactpurchase.php' ?>
+                <?php include 'mainsales.php' ?>
+                <!-- End of Main Content -->
 
+                <!-- Footer -->
+                <?php include 'footer.php' ?>
+                <!-- End of Footer -->
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <?php include 'footer.php' ?>
-            <!-- End of Footer -->
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-    <?php include 'addons.php' ?>
-    <!-- script JS  -->
-    <?php include 'script.php'; ?>
+        <!-- End of Page Wrapper -->
+        <?php include 'addons.php' ?>
+        <!-- script JS  -->
+        <?php include 'script.php'; ?>
 
 </body>
 
