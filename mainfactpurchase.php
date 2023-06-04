@@ -1,8 +1,7 @@
 <div class="container-fluid">
-
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Fact Purchase Table</h1>
-    <p class="mb-4">gtw njelasin apa <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+    <p class="mb-4">Tabel dibawah ini merupakan tabel pembelian barang yang berisikan produk yang dibeli, tanggal pembelian, jumlah produk, harga satuan produk dan total pembelian barang</p>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
