@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DWO AdventureWorks  2022</title>
+    <title>SB Admin 2 - Buttons</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -33,7 +33,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-solid fa-bicycle"></i>
+                    <i class="fas fa-solid fa-bicycle"></i>
                 </div>
                 <div class="sidebar-brand-text mx-1">Adventureworks</div>
             </a>
@@ -42,11 +42,10 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">
-                <i class="fas fa-solid fa-house-user"></i>
-                    <span>Dashboard</span>
-                </a>
+                    <i class="fas fa-solid fa-house-user"></i>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -54,12 +53,11 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-
                 Chart
             </div>
 
             <!-- chart dwo-->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="product.php">
                     <i class="fas fa-solid fa-box"></i>
                     <span>Inventory</span></a>
@@ -70,46 +68,42 @@
                     <i class="fas fa-solid fa-chart-pie"></i>
                     <span>Sales</span></a>
             </li>
-                 
-            </li>
             <li class="nav-item">
-
                 <a class="nav-link" href="purchase.php">
                     <i class="fas fa-solid fa-comment-dollar"></i>
                     <span>Purchase</span></a>
             </li>
 
-             <!-- Divider -->
-             <hr class="sidebar-divider">
-
-             <!-- Heading -->
-             <div class="sidebar-heading">
-                 Table
-             </div>
- 
-             <!-- Nav Item - Pages Collapse Menu -->
-             <li class="nav-item">
-                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                     aria-expanded="true" aria-controls="collapseTwo">
-                     <span>Information Table</span>
-                 </a>
-                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                     <div class="bg-white py-2 collapse-inner rounded">
-                         <a class="collapse-item" href="factProduct.html">factProduct</a>
-                         <a class="collapse-item" href="factSales.html">factSales</a>
-                         <a class="collapse-item" href="factPurchase.html">factPurchase</a>
-                     </div>
-                 </div>
-             </li>
-            
             <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Table
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <span>Information Table</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="factProduct.html">factProduct</a>
+                        <a class="collapse-item" href="factSales.html">factSales</a>
+                        <a class="collapse-item" href="factPurchase.html">factPurchase</a>
+                    </div>
+                </div>
+            </li>
+
+
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
 
         </ul>
         <!-- End of Sidebar -->
@@ -155,7 +149,8 @@
                                     </div>
                                 </form>
                             </div>
-                        </li> 
+                        </li>
+
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -192,13 +187,11 @@
                 </nav>
                 <!-- End of Topbar -->
 
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Product</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -211,18 +204,19 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Total Inventory Quantity</div>
+                                                Total Inventory</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
                                                 include 'koneksi.php';
-                                                $result = mysqli_query($conn, "SELECT SUM(`Quantity`) AS total FROM factinventory");
+                                                $result = mysqli_query($conn, "SELECT COUNT(DISTINCT productID) AS total FROM dimproduct;");
                                                 $row = mysqli_fetch_assoc($result);
                                                 echo '' . number_format($row['total']);
                                                 ?>
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <!--<i class="fas fa-calendar fa-2x text-gray-300"></i>--> 
+                                            <i class="fas fa-solid fa-dolly fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -231,48 +225,16 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Total Purchase Order Quantity</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                            <?php
-                                                include 'koneksi.php';
-                                                $result = mysqli_query($conn, "SELECT SUM(`orderqty`) AS total FROM factpurchase");
-                                                $row = mysqli_fetch_assoc($result);
-                                                echo '' . number_format($row['total']);
-                                                ?>
-                                            </div>
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Total Inventory Category</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Purchase Unit Price
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                            <?php
-                                                include 'koneksi.php';
-                                                $result = mysqli_query($conn, "SELECT SUM(`unitprice`) AS total FROM factpurchase");
-                                                $row = mysqli_fetch_assoc($result);
-                                                echo '' . number_format($row['total']);
-                                                ?>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-clipboard fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -281,46 +243,13 @@
 
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Total Vendor
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                            <?php
-                                                include 'koneksi.php';
-                                                $result = mysqli_query($conn, "SELECT COUNT(DISTINCT VendorID) AS total FROM factpurchase;");
-                                                $row = mysqli_fetch_assoc($result);
-                                                echo '' . number_format($row['total']);
-                                                ?>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Total Sales Order Quantity</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                            <?php
-                                                include 'koneksi.php';
-                                                $result = mysqli_query($conn, "SELECT SUM(`orderqty`) AS total FROM factsales");
-                                                $row = mysqli_fetch_assoc($result);
-                                                echo '' . number_format($row['total']);
-                                                ?>
-                                            </div>
+                                                Total Inventory Modal</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -329,71 +258,34 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Total Sales Unit Price</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                            <?php
-                                                include 'koneksi.php';
-                                                $result = mysqli_query($conn, "SELECT SUM(`unitprice`) AS total FROM factsales");
-                                                $row = mysqli_fetch_assoc($result);
-                                                echo '' . number_format($row['total']);
-                                                ?>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Total Customer</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
-                                                include 'koneksi.php';
-                                                $result = mysqli_query($conn, "SELECT COUNT(DISTINCT customerID) AS total FROM factsales;");
-                                                $row = mysqli_fetch_assoc($result);
-                                                echo '' . number_format($row['total']);
-                                                ?>
-                                                </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
 
-                    <!-- Content Row -->
-
                     <div class="row">
+                    
 
                         <!-- Area Chart -->
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Top 10 Best Seller Inventory</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            
+                            <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">AdventureWorks OLAP</h6>
-                                    <!-- <div class="dropdown no-arrow">
+                                    <h6 class="m-0 font-weight-bold text-primary">Total Inventory based on Category</h6>
+                                    <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -406,81 +298,53 @@
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Direct
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Social
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Referral
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        
                     </div>
 
-                    <!-- Content Row -->
                     <div class="row">
 
                         <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Project Card Example -->
+                        <div class="col-lg-12 mb-4">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Overview</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Inventory Quantity per Year</h6>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="small font-weight-bold">Total Production <span
-                                            class="float-right">70%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="chart-bar">
+                                        <canvas id="myAreaChart"></canvas>
                                     </div>
-                                    <h4 class="small font-weight-bold">Sales Tracking <span
-                                            class="float-right">40%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
-                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Customer Database <span
-                                            class="float-right">60%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 60%"
-                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Purchase <span
-                                            class="float-right">80%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
-                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Account Setup <span
-                                            class="float-right">Complete!</span></h4>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
+                                    <hr>
+                                    Styling for the bar chart can be found in the
+                                    <code>/js/demo/chart-bar-demo.js</code> file.
                                 </div>
                             </div>
-
-                            
                         </div>
 
-                        <div class="col-lg-6 mb-4">
 
-                            
-
-                            
-
-                        </div>
-                    </div>
-
+                    
                 </div>
                 <!-- /.container-fluid -->
 
-            
             </div>
             <!-- End of Main Content -->
 
@@ -541,6 +405,7 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
 
