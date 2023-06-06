@@ -217,7 +217,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
                                                 include 'koneksi.php';
-                                                $result = mysqli_query($conn, "SELECT SUM(`totalqtyproduct`) AS total FROM factproduction");
+                                                $result = mysqli_query($conn, "SELECT SUM(`Quantity`) AS total FROM factinventory");
                                                 $row = mysqli_fetch_assoc($result);
                                                 echo '$' . number_format($row['total'], 2);
                                                 ?>
