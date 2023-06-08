@@ -60,7 +60,7 @@
 
             <!-- chart dwo-->
             <li class="nav-item">
-                <a class="nav-link" href="product.php">
+                <a class="nav-link" href="inventory.php">
                     <i class="fas fa-solid fa-box"></i>
                     <span>Inventory</span></a>
             </li>
@@ -95,9 +95,9 @@
                  </a>
                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                      <div class="bg-white py-2 collapse-inner rounded">
-                         <a class="collapse-item" href="factProduct.html">factProduct</a>
-                         <a class="collapse-item" href="factSales.html">factSales</a>
-                         <a class="collapse-item" href="factPurchase.html">factPurchase</a>
+                         <a class="collapse-item" href="factinventory.php">Fact Inventory</a>
+                         <a class="collapse-item" href="factsales.php">Fact Sales</a>
+                         <a class="collapse-item" href="factpurchase.php">Fact Purchase</a>
                      </div>
                  </div>
              </li>
