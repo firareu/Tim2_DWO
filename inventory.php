@@ -9,11 +9,11 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php include 'sidebarsales.php'; ?>
+        <?php include 'sidebarinventory.php'; ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column justify-content-between">
 
             <!-- Main Content -->
             <div id="content">
@@ -23,7 +23,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <?php include 'mainsales.php' ?>
+                <?php include 'maininventory.php' ?>
                 <!-- End of Main Content -->
 
                 <!-- Footer -->
@@ -71,10 +71,10 @@
             var myLineChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: [<?php echo $chart_bulan; ?>],
+                    labels: [<?php echo $chart_lokasi; ?>],
                     datasets: [{
-                        label: "Jumlah Customer",
-                        lineTension: 0.3,
+                        label: "Jumlah Produk",
+                        lineTension: 0.1,
                         backgroundColor: "rgba(78, 115, 223, 0.05)",
                         borderColor: "rgba(78, 115, 223, 1)",
                         pointRadius: 3,
@@ -85,7 +85,7 @@
                         pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                         pointHitRadius: 10,
                         pointBorderWidth: 2,
-                        data: [<?php echo $chart_customer; ?>],
+                        data: [<?php echo $chart_produk; ?>],
                     }],
                 },
                 options: {
@@ -108,7 +108,7 @@
                                 drawBorder: false
                             },
                             ticks: {
-                                maxTicksLimit: 7
+                                maxTicksLimit: 14
                             }
                         }],
                         yAxes: [{
@@ -155,36 +155,7 @@
                     }
                 }
             });
-            var ctx = document.getElementById("myPieChart");
-            var myPieChart = new Chart(ctx, {
-                type: "doughnut",
-                data: {
-                    labels: <?php echo json_encode($country); ?>,
-                    datasets: [{
-                        data: <?php echo json_encode($jumlah); ?>,
-                        backgroundColor: ["#d94f00", "#d9c300", "#94d900", "#00d953", "#00d9c7 ", "#0028d9 ", "#8900d9", "#d90033", "#969696 ", "#ff26ac"],
-                        hoverBackgroundColor: ["#fa8948", "#f7e439", "#bef743", "#4af78c", "#52faec", "#4e6efc", "#bd4dff", "#ff4773", "black", "#ff1c4d"],
-                        hoverBorderColor: "rgba(234, 236, 244, 1)",
-                    }, ],
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    tooltips: {
-                        backgroundColor: "rgb(255,255,255)",
-                        bodyFontColor: "#858796",
-                        borderColor: "#dddfeb",
-                        borderWidth: 1,
-                        xPadding: 15,
-                        yPadding: 15,
-                        displayColors: false,
-                        caretPadding: 10,
-                    },
-                    legend: {
-                        display: false,
-                    },
-                    cutoutPercentage: 80,
-                },
-            });
+            
         </script>
 
 </body>
