@@ -73,7 +73,7 @@
                 data: {
                     labels: [<?php echo $chart_year; ?>],
                     datasets: [{
-                        label: "Total Unit Price",
+                        label: "Total Purchase",
                         lineTension: 0.3,
                         backgroundColor: "rgba(78, 115, 223, 0.05)",
                         borderColor: "rgba(78, 115, 223, 1)",

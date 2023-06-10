@@ -11,9 +11,9 @@
             </div>
             <div class="mt-4 text-center small">
                 <?php
-                $purchase = mysqli_query($conn, "SELECT DISTINCT(productID), ROUND(Sum(unitPrice)) AS price FROM factpurchase GROUP BY productID ORDER BY price DESC LIMIT 5");
+                $purchase = mysqli_query($conn, "SELECT DISTINCT(productID), ROUND(Sum(lineTotal)) AS price FROM factpurchase GROUP BY productID ORDER BY price DESC LIMIT 5");
                 while ($data = mysqli_fetch_array($purchase)) {
-                    $sql = mysqli_query($conn, "SELECT d.name_produk AS produk , ROUND(Sum(fp.unitPrice)) AS price FROM factpurchase fp JOIN dimproduct d ON fp.productID=d.productID WHERE fp.productID='" . $data['productID'] . "'");
+                    $sql = mysqli_query($conn, "SELECT d.name_produk AS produk , ROUND(Sum(fp.lineTotal)) AS price FROM factpurchase fp JOIN dimproduct d ON fp.productID=d.productID WHERE fp.productID='" . $data['productID'] . "'");
                     $data = $sql->fetch_array();
                     $produk[] = $data['produk'];
                 }
@@ -40,9 +40,9 @@
 <?php
 include 'koneksi.php';
 // Pemanggilan Data untuk Donut Chart
-$purchase = mysqli_query($conn, "SELECT DISTINCT(productID), ROUND(Sum(unitPrice)) AS price FROM factpurchase GROUP BY productID ORDER BY price DESC LIMIT 5");
+$purchase = mysqli_query($conn, "SELECT DISTINCT(productID), ROUND(Sum(lineTotal)) AS price FROM factpurchase GROUP BY productID ORDER BY price DESC LIMIT 5");
 while ($data = mysqli_fetch_array($purchase)) {
-    $sql = mysqli_query($conn, "SELECT d.name_produk AS produk , ROUND(Sum(fp.unitPrice)) AS price FROM factpurchase fp JOIN dimproduct d ON fp.productID=d.productID WHERE fp.productID='" . $data['productID'] . "'");
+    $sql = mysqli_query($conn, "SELECT d.name_produk AS produk , ROUND(Sum(fp.lineTotal)) AS price FROM factpurchase fp JOIN dimproduct d ON fp.productID=d.productID WHERE fp.productID='" . $data['productID'] . "'");
     $data = $sql->fetch_array();
     $produk[] = $data['produk'];
     $price2[] = $data['price'];
