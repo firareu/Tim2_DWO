@@ -18,11 +18,11 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 <?php
                                 require 'koneksi.php';
-                                $query = "SELECT SUM(Quantity) AS totalInventoryQty FROM `factinventory`";
+                                $query = "SELECT SUM(Quantity) AS totalInventoryQty FROM factinventory";
                                 $result = mysqli_query($conn, $query);
                                 if ($result) {
                                     $row = mysqli_fetch_assoc($result);
-                                    $totalInventoryQty = $row['totalInventoryQty'];
+                                    $totalInventoryQty = number_format($row['totalInventoryQty']);
                                     echo  $totalInventoryQty;
                                 } else {
                                     echo "Tidak ada data yang ditemukan.";
@@ -48,7 +48,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 <?php
                                 require 'koneksi.php';
-                                $query = "SELECT COUNT(DISTINCT ProductID) AS totalProduct FROM `factinventory`";
+                                $query = "SELECT COUNT(DISTINCT ProductID) AS totalProduct FROM factinventory";
                                 $result = mysqli_query($conn, $query);
                                 if ($result) {
                                     $row = mysqli_fetch_assoc($result);
@@ -103,6 +103,8 @@
 
         <!-- Area Chart -->
         <?php include 'lineinventory.php' ?>
+        <!-- Pie Chart -->
+        <?php include 'pieinventory.php' ?>
         
     </div>
     <!-- /.container-fluid -->

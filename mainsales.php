@@ -22,7 +22,7 @@
                                 $result = mysqli_query($conn, $query);
                                 if ($result) {
                                     $row = mysqli_fetch_assoc($result);
-                                    $totalOrderQty = $row['totalOrderQty'];
+                                    $totalOrderQty = number_format($row['totalOrderQty']);
                                     echo  $totalOrderQty;
                                 } else {
                                     echo "Tidak ada data yang ditemukan.";
@@ -52,7 +52,7 @@
                                 $result = mysqli_query($conn, $query);
                                 if ($result) {
                                     $row = mysqli_fetch_assoc($result);
-                                    $totalOrder = $row['totalOrder'];
+                                    $totalOrder = number_format($row['totalOrder']);
                                     echo  $totalOrder;
                                 } else {
                                     echo "Tidak ada data yang ditemukan.";
@@ -83,7 +83,7 @@
                                 $result = mysqli_query($conn, $query);
                                 if ($result) {
                                     $row = mysqli_fetch_assoc($result);
-                                    $totalCust = $row['totalCustomer'];
+                                    $totalCust = number_format($row['totalCustomer']);
                                     echo  $totalCust;
                                 } else {
                                     echo "Tidak ada data yang ditemukan.";
@@ -112,7 +112,7 @@
                                 $result = mysqli_query($conn, $query);
                                 if ($result) {
                                     $row = mysqli_fetch_assoc($result);
-                                    $totalP = $row['total'];
+                                    $totalP = number_format($row['total']);
                                     echo '' . $totalP;
                                 } else {
                                     echo "Tidak ada data yang ditemukan.";
