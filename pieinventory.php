@@ -12,15 +12,18 @@
             <div class="mt-4 text-center small">
 
                 <?php
+
                 $lokasi = mysqli_query($conn, "SELECT DISTINCT locationid, ROUND(SUM(Quantity)) AS qty FROM factinventory GROUP BY locationid  ORDER BY qty DESC LIMIT 5;");
                 while ($data = mysqli_fetch_array($lokasi)) {
                     $sql = mysqli_query($conn, "SELECT l.Name AS loc, ROUND(Sum(f.Quantity)) AS qty FROM factinventory f JOIN dimlocation l ON f.locationid = l.locationid where l.locationid='" . $data['locationid'] . "'");
                     $data = $sql->fetch_array();
                     $loc[] = $data['loc'];
+
                 }
                 ?>
 
                 <span class="mr-2">
+
                     <i class="fas fa-circle" style="color: #d94f00;"></i> <?php echo $loc[0]; ?>
                 </span>
                 <span class="mr-2">
@@ -34,6 +37,7 @@
                 </span>
                 <span class="mr-2">
                     <i class="fas fa-circle" style="color: #00d9c7;"></i> <?php echo $loc[4]; ?>
+
                 </span>
                 
             </div>
@@ -43,12 +47,13 @@
 <?php
 include 'koneksi.php';
 // Pemanggilan Data untuk Donut Chart
+
 $lokasi = mysqli_query($conn, "SELECT DISTINCT locationid, ROUND(SUM(Quantity)) AS qty FROM factinventory GROUP BY locationid  ORDER BY qty DESC LIMIT 5;");
 while ($data = mysqli_fetch_array($lokasi)) {
     $sql = mysqli_query($conn, "SELECT l.Name AS loc, ROUND(Sum(f.Quantity)) AS qty FROM factinventory f JOIN dimlocation l ON f.locationid = l.locationid where l.locationid='" . $data['locationid'] . "'");
     $data = $sql->fetch_array();
     $loc[] = $data['loc'];
     $qty[] = $data['qty'];
-}
+
 
 ?>

@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 
 <jp:mondrianQuery id="query01" jdbcDriver="com.mysql.jdbc.Driver" 
-jdbcUrl="jdbc:mysql://localhost:4306/fpaw?user=root&password=" catalogUri="/WEB-INF/queries/whawFactSales.xml">
+jdbcUrl="jdbc:mysql://localhost/fpaw?user=root&password=" catalogUri="/WEB-INF/queries/whawFactSales.xml">
 
 select {[Measures].[Order Quantity],[Measures].[Unit Price],[Measures].[Line Total]} ON COLUMNS,
   {([Time],[Address Location],[Customer],[Product])} ON ROWS

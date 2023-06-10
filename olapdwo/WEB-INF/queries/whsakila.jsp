@@ -4,7 +4,7 @@
 
 
 <jp:mondrianQuery id="query01" jdbcDriver="com.mysql.jdbc.Driver" 
-jdbcUrl="jdbc:mysql://localhost:4306/whsakila?user=root&password=" catalogUri="/WEB-INF/queries/dwsakila.xml">
+jdbcUrl="jdbc:mysql://localhost/whsakila?user=root&password=" catalogUri="/WEB-INF/queries/dwsakila.xml">
 
 select {[Measures].[Amount],[Measures].[Lama Pinjam]} ON COLUMNS,
   {([Store],[Time].[All Times],[Customer],[Film].[All Films])} ON ROWS
