@@ -33,7 +33,7 @@ while ($row = mysqli_fetch_array($query_year)) {
     }
 }
 $a = 1;
-$query_price = mysqli_query($conn, "SELECT SUM(f.unitPrice) as total_price FROM factpurchase f JOIN dimtime t ON f.TimeID=t.timeID WHERE t.year >= 1998 GROUP BY t.year ;");
+$query_price = mysqli_query($conn, "SELECT SUM(f.lineTotal) as total_price FROM factpurchase f JOIN dimtime t ON f.TimeID=t.timeID WHERE t.year >= 1998 GROUP BY t.year ;");
 $jumlah_price = mysqli_num_rows($query_price);
 $chart_price = "";
 while ($row1 = mysqli_fetch_array($query_price)) {
