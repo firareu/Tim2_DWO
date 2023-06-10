@@ -86,6 +86,11 @@
   <wcf:imgbutton id="printxls" tooltip="toolb.excel" img="excel" href="./Print?cube=01&type=0"/>
 </wcf:toolbar>
 
+<p>
+  <a href="index.html">Kembali Ke Laman Utama</a>
+  
+<p></p>
+
 <%-- render toolbar --%>
 <wcf:render ref="toolbar01" xslUri="/WEB-INF/jpivot/toolbar/htoolbar.xsl" xslCache="true"/>
 <p>
@@ -115,7 +120,9 @@
 <%-- print properties --%>
 <wcf:render ref="printform01" xslUri="/WEB-INF/wcf/wcf.xsl" xslCache="true"/>
 
-<!-- render the table -->
+
+
+  <!-- render the table -->
 <p>
 <wcf:render ref="table01" xslUri="/WEB-INF/jpivot/table/mdxtable.xsl" xslCache="true"/>
 <p>
@@ -131,8 +138,8 @@ Slicer:
 <wcf:render ref="chart01" xslUri="/WEB-INF/jpivot/chart/chart.xsl" xslCache="true"/>
 
 <p>
-<a href="index.html">Kembali Ke Laman Utama</a>
-
+  <a href="index.html">Kembali Ke Laman Utama</a>
+  
 </form>
 
 

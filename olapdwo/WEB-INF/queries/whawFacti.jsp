@@ -3,12 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 
 <jp:mondrianQuery id="query01" jdbcDriver="com.mysql.jdbc.Driver" 
-jdbcUrl="jdbc:mysql://localhost:4306/fpaw?user=root&password=" catalogUri="/WEB-INF/queries/whawFactProduction.xml">
+jdbcUrl="jdbc:mysql://localhost/fpaw?user=root&password=" catalogUri="/WEB-INF/queries/whawFactinv.xml">
 
 select {[measures].[total Quantity]} ON COLUMNS, 
-    {([Time],[Product])} ON ROWS 
-from [Production]
+    {([Location],[Product])} ON ROWS 
+from [Inventory]
 
 </jp:mondrianQuery>
 
-<c:set var="title01" scope="session">Query WH Adventure Fact Production using Mondrian OLAP</c:set>
+<c:set var="title01" scope="session">Query WH Adventure Fact Inventory using Mondrian OLAP</c:set>
