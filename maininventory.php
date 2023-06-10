@@ -22,7 +22,7 @@
                                 $result = mysqli_query($conn, $query);
                                 if ($result) {
                                     $row = mysqli_fetch_assoc($result);
-                                    $totalInventoryQty = $row['totalInventoryQty'];
+                                    $totalInventoryQty = number_format($row['totalInventoryQty']);
                                     echo  $totalInventoryQty;
                                 } else {
                                     echo "Tidak ada data yang ditemukan.";

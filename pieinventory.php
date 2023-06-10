@@ -10,44 +10,36 @@
                 <canvas id="myPieChart"></canvas>
             </div>
             <div class="mt-4 text-center small">
+
                 <?php
-                $lokasi = mysqli_query($conn, "SELECT locationid, SUM(Quantity) FROM factinventory GROUP BY locationid;");
+
+                $lokasi = mysqli_query($conn, "SELECT DISTINCT locationid, ROUND(SUM(Quantity)) AS qty FROM factinventory GROUP BY locationid  ORDER BY qty DESC LIMIT 5;");
                 while ($data = mysqli_fetch_array($lokasi)) {
-                    $sql = mysqli_query($conn, "SELECT DISTINCT l.locationid, l.Name location FROM factinventory f JOIN dimlocation l ON f.locationid = l.locationid ORDER BY l.locationid ASC");
+                    $sql = mysqli_query($conn, "SELECT l.Name AS loc, ROUND(Sum(f.Quantity)) AS qty FROM factinventory f JOIN dimlocation l ON f.locationid = l.locationid where l.locationid='" . $data['locationid'] . "'");
                     $data = $sql->fetch_array();
-                    $idlokasi[] = $data['locationid'];
+                    $loc[] = $data['loc'];
+
                 }
                 ?>
+
                 <span class="mr-2">
-                    <i class="fas fa-circle" style="color: #d94f00;"></i> <?php echo $idlokasi[0]; ?>
+
+                    <i class="fas fa-circle" style="color: #d94f00;"></i> <?php echo $loc[0]; ?>
                 </span>
                 <span class="mr-2">
-                    <i class="fas fa-circle" style="color: #d9c300;"></i> <?php echo $idlokasi[1]; ?>
+                    <i class="fas fa-circle" style="color: #d9c300;"></i> <?php echo $loc[1]; ?>
                 </span>
                 <span class="mr-2">
-                    <i class="fas fa-circle" style="color: #94d900;"></i> <?php echo $idlokasi[2]; ?>
+                    <i class="fas fa-circle" style="color: #94d900;"></i> <?php echo $loc[2]; ?>
                 </span>
                 <span class="mr-2">
-                    <i class="fas fa-circle" style="color: #00d953;"></i> <?php echo $idlokasi[3]; ?>
+                    <i class="fas fa-circle" style="color: #00d953;"></i> <?php echo $loc[3]; ?>
                 </span>
                 <span class="mr-2">
-                    <i class="fas fa-circle" style="color: #00d9c7;"></i> <?php echo $idlokasi[4]; ?>
+                    <i class="fas fa-circle" style="color: #00d9c7;"></i> <?php echo $loc[4]; ?>
+
                 </span>
-                <span class="mr-2">
-                    <i class="fas fa-circle" style="color: #0028d9;"></i> <?php echo $idlokasi[5]; ?>
-                </span>
-                <span class="mr-2">
-                    <i class="fas fa-circle" style="color: #8900d9;"></i> <?php echo $idlokasi[6]; ?>
-                </span>
-                <span class="mr-2">
-                    <i class="fas fa-circle" style="color: #d90033;"></i> <?php echo $idlokasi[7]; ?>
-                </span>
-                <span class="mr-2">
-                    <i class="fas fa-circle" style="color: #969696;"></i> <?php echo $idlokasi[8]; ?>
-                </span>
-                <span class="mr-2">
-                    <i class="fas fa-circle" style="color: #ff26ac;"></i> <?php echo $idlokasi[9]; ?>
-                </span>
+                
             </div>
         </div>
     </div>
@@ -55,12 +47,13 @@
 <?php
 include 'koneksi.php';
 // Pemanggilan Data untuk Donut Chart
-$lokasi = mysqli_query($conn, "SELECT locationid, SUM(Quantity) FROM factinventory GROUP BY locationid;");
+
+$lokasi = mysqli_query($conn, "SELECT DISTINCT locationid, ROUND(SUM(Quantity)) AS qty FROM factinventory GROUP BY locationid  ORDER BY qty DESC LIMIT 5;");
 while ($data = mysqli_fetch_array($lokasi)) {
-    $sql = mysqli_query($conn, "SELECT DISTINCT l.locationid, l.Name location FROM factinventory f JOIN dimlocation l ON f.locationid = l.locationid ORDER BY l.locationid ASC");
+    $sql = mysqli_query($conn, "SELECT l.Name AS loc, ROUND(Sum(f.Quantity)) AS qty FROM factinventory f JOIN dimlocation l ON f.locationid = l.locationid where l.locationid='" . $data['locationid'] . "'");
     $data = $sql->fetch_array();
-    $idlokasi[] = $data['locationid'];
-    $location[] = $data['location'];
-}
+    $loc[] = $data['loc'];
+    $qty[] = $data['qty'];
+
 
 ?>
