@@ -155,7 +155,36 @@
                     }
                 }
             });
-            
+            var ctx = document.getElementById("myPieChart");
+            var myPieChart = new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: <?php echo json_encode($idlokasi); ?>,
+                    datasets: [{
+                        data: <?php echo json_encode($location); ?>,
+                        backgroundColor: ["#d94f00", "#d9c300", "#94d900", "#00d953", "#00d9c7 ", "#0028d9 ", "#8900d9", "#d90033", "#969696 ", "#ff26ac"],
+                        hoverBackgroundColor: ["#fa8948", "#f7e439", "#bef743", "#4af78c", "#52faec", "#4e6efc", "#bd4dff", "#ff4773", "black", "#ff1c4d"],
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
+                    }, ],
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    tooltips: {
+                        backgroundColor: "rgb(255,255,255)",
+                        bodyFontColor: "#858796",
+                        borderColor: "#dddfeb",
+                        borderWidth: 1,
+                        xPadding: 15,
+                        yPadding: 15,
+                        displayColors: false,
+                        caretPadding: 10,
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    cutoutPercentage: 80,
+                },
+            });
         </script>
 
 </body>
