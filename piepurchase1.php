@@ -11,9 +11,9 @@
             </div>
             <div class="mt-4 text-center small">
                 <?php
-                $purchase = mysqli_query($conn, "SELECT DISTINCT(VendorID), ROUND(Sum(unitPrice)) AS price FROM factpurchase GROUP BY vendorID ORDER BY price DESC LIMIT 5");
+                $purchase = mysqli_query($conn, "SELECT DISTINCT(VendorID), ROUND(Sum(lineTotal)) AS price FROM factpurchase GROUP BY vendorID ORDER BY price DESC LIMIT 5");
                 while ($data = mysqli_fetch_array($purchase)) {
-                    $sql = mysqli_query($conn, "SELECT d.Name AS vendor , ROUND(Sum(fp.unitPrice)) AS price FROM factpurchase fp JOIN dimvendor d ON fp.VendorID=d.VendorID WHERE fp.VendorID='" . $data['VendorID'] . "'");
+                    $sql = mysqli_query($conn, "SELECT d.Name AS vendor , ROUND(Sum(fp.lineTotal)) AS price FROM factpurchase fp JOIN dimvendor d ON fp.VendorID=d.VendorID WHERE fp.VendorID='" . $data['VendorID'] . "'");
                     $data = $sql->fetch_array();
                     $vendor[] = $data['vendor'];
                 }
@@ -40,9 +40,9 @@
 <?php
 include 'koneksi.php';
 // Pemanggilan Data untuk Donut Chart
-$purchase = mysqli_query($conn, "SELECT DISTINCT(VendorID), ROUND(Sum(unitPrice)) AS price FROM factpurchase GROUP BY vendorID ORDER BY price DESC LIMIT 5");
+$purchase = mysqli_query($conn, "SELECT DISTINCT(VendorID), ROUND(Sum(lineTotal)) AS price FROM factpurchase GROUP BY vendorID ORDER BY price DESC LIMIT 5");
 while ($data = mysqli_fetch_array($purchase)) {
-    $sql = mysqli_query($conn, "SELECT d.name AS vendor , ROUND(Sum(fp.unitPrice)) AS price FROM factpurchase fp JOIN dimvendor d ON fp.VendorID=d.VendorID WHERE fp.VendorID='" . $data['VendorID'] . "'");
+    $sql = mysqli_query($conn, "SELECT d.name AS vendor , ROUND(Sum(fp.lineTotal)) AS price FROM factpurchase fp JOIN dimvendor d ON fp.VendorID=d.VendorID WHERE fp.VendorID='" . $data['VendorID'] . "'");
     $data = $sql->fetch_array();
     $vendor[] = $data['vendor'];
     $price[] = $data['price'];
