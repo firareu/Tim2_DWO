@@ -19,7 +19,7 @@ Cara Installasi :
 5. **Setting port** pada file **koneksi.php**
 6. Download database yang digunakan yaitu **fpaw.sql** yang juga sudah terdapat di folder .zip yg telah di download
 7. Akses http://localhost/phpmyadmin/ lalu buat database baru dengan nama **fpaw**
-8. Import database **fpaw.sql** ke dalam database dwouts yg berada di phpmyadmin 
+8. Import database **fpaw(1).sql** ke dalam database dwouts yg berada di phpmyadmin 
 9. Sebelum mengakses website, pindahkan folder **olapdwo** yang berada di dalam folder.zip yang sudah di download Letakkan folder **olapdwo** pada directory **C:\xampp\tomcat\webapps\**
 10. Jangan lupa untuk melakukan **start pada Apache, MySQL, dan Tomcat** yang berada pada XAMPP
 11. Jalankan dashboard dengan meng**akses http://localhost/Tim2_DWO-main/**
