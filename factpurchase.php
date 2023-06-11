@@ -205,10 +205,11 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
-                                        <tr>
-                                            <th>Product ID</th>
-                                            <th>Time ID</th>
-                                            <th>Vendor ID</th>
+                                       <tr>
+                                            <!-- ubah  -->
+                                            <th>Product</th>
+                                            <th>Date</th>
+                                            <th>Vendor</th>
                                             <th>Order Quantity</th>
                                             <th>Unit Price</th>
                                             <th>Line Total</th>
@@ -216,28 +217,29 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Product ID</th>
-                                            <th>Time ID</th>
-                                            <th>Vendor ID</th>
+                                            <!-- ubah  -->
+                                            <th>Product</th>
+                                            <th>Date</th>
+                                            <th>Vendor</th>
                                             <th>Order Quantity</th>
                                             <th>Unit Price</th>
                                             <th>Line Total</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php
+                                       <?php
                                         include "koneksi.php";
 
-                                        $result = mysqli_query($conn, 'SELECT * FROM factpurchase ORDER BY productID ASC Limit 2000');
+                                        $result = mysqli_query($conn, 'SELECT dp.name_produk Produk, dt.fullDate Date, dv.Name Vendor, fp.orderQty Quantity, fp.unitPrice Price, fp.lineTotal TotalPrice FROM factpurchase fp JOIN dimproduct dp ON fp.productID=dp.productID JOIN dimtime dt on dt.timeID= fp.timeID JOIN dimvendor dv ON dv.VendorID= fp.VendorID ORDER BY fp.productID ASC Limit 2000');
                                         while ($data = mysqli_fetch_array($result)) {
                                         ?>
                                             <tr>
-                                                <td><?php echo $data['productID'] ?></td>
-                                                <td><?php echo $data['timeID'] ?></td>
-                                                <td><?php echo $data['VendorID'] ?></td>
-                                                <td><?php echo $data['orderQty'] ?></td>
-                                                <td><?php echo $data['unitPrice'] ?></td>
-                                                <td><?php echo $data['lineTotal'] ?></td>
+                                                <td><?php echo $data['Produk'] ?></td>
+                                                <td><?php echo $data['Date'] ?></td>
+                                                <td><?php echo $data['Vendor'] ?></td>
+                                                <td><?php echo $data['Quantity'] ?></td>
+                                                <td><?php echo $data['Price'] ?></td>
+                                                <td><?php echo $data['TotalPrice'] ?></td>
                                             </tr>
                                         <?php
                                         }
