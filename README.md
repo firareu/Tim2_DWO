@@ -1,7 +1,21 @@
 TUGAS PROJECT DWO OLAP
 ANGGOTA KELOMPOK :
-
-1. Achmad Yusuf Al Maruf || 2020 || 20082010148
-2.
-3.
-4. Cara Menginstall :
+20082010083			Wisnu Aryo .S
+20082010106			Putri Dian Shafira
+20082010148			Achmad Yusuf Al Maruf
+21082010053			Nabila Athifah Zahra
+21082010084			Nur Racana Kuslaila
+Cara Installasi :
+1. Download dan install XAMPP untuk menjalankan Apache, MySQL, dan Tomcat
+2. Download PHP dengan versi terbaru
+3. Buka github dan download folder .zip melalui link github **https://github.com/firareu/Tim2_DWO**
+4. Export file zip yang di download dan letakkan di bagian directory **C:\xampp\htdocs\** yang terdapat pada masing-masing device
+5. **Setting port** pada file **koneksi.php**
+6. Download database yang digunakan yaitu **fpaw.sql** yang juga sudah terdapat di folder .zip yg telah di download
+7. Akses http://localhost/phpmyadmin/ lalu buat database baru dengan nama **fpaw**
+8. Import database **fpaw.sql** ke dalam database dwouts yg berada di phpmyadmin 
+9. Sebelum mengakses website, pindahkan folder **olapdwo** yang berada di dalam folder.zip yang sudah di download
+10. Letakkan folder **olapdwo** pada directory **C:\xampp\tomcat\webapps\**
+11. Jangan lupa untuk melakukan **start pada Apache, MySQL, dan Tomcat** yang berada pada XAMPP
+12. Jalankan dashboard dengan meng**akses http://localhost/Tim2_DWO-main/**
+Selamat mengexplore aplikasi dashboard yang telah dibuat
