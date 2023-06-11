@@ -205,28 +205,27 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                         <tr>
-                                            <th>Product ID</th>
-                                            <th>Location ID</th>
+                                             <th>Produk</th>
+                                            <th>Location</th>
                                             <th>Quantity</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Product ID</th>
-                                            <th>Location ID</th>
+                                             <th>Produk</th>
+                                            <th>Location</th>
                                             <th>Quantity</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
                                         include "koneksi.php";
-
-                                        $result = mysqli_query($conn, 'SELECT * FROM factinventory ORDER BY productID');
+                                        $result = mysqli_query($conn, 'SELECT dp.name_produk Produk, dl.Name Lokasi, fi.Quantity Quantity  FROM factinventory fi JOIN dimlocation dl ON fi.LocationID = dl.LocationID JOIN dimproduct dp ON dp.productID = fi.ProductID;');
                                         while ($data = mysqli_fetch_array($result)) {
                                         ?>
                                             <tr>
-                                                <td><?php echo $data['ProductID'] ?></td>
-                                                <td><?php echo $data['LocationID'] ?></td>
+                                                <td><?php echo $data['Produk'] ?></td>
+                                                <td><?php echo $data['Lokasi'] ?></td>
                                                 <td><?php echo $data['Quantity'] ?></td>
                                             </tr>
                                         <?php
