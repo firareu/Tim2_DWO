@@ -205,44 +205,41 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                         <tr>
-                                            <th>Sales ID</th>
-                                            <th>Product ID</th>
+                                            <th>Product</th>
                                             <th>Customer ID</th>
-                                            <th>Time ID</th>
+                                            <th>Time</th>
+                                            <th>Territory</th>
                                             <th>Order Quantity</th>
                                             <th>Unit Price</th>
                                             <th>Line Total</th>
-                                            <th>Territory ID</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Sales ID</th>
-                                            <th>Product ID</th>
+                                            <th>Product</th>
                                             <th>Customer ID</th>
-                                            <th>Time ID</th>
+                                            <th>Time</th>
+                                            <th>Territory</th>
                                             <th>Order Quantity</th>
                                             <th>Unit Price</th>
                                             <th>Line Total</th>
-                                            <th>Territory ID</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
                                         include "koneksi.php";
 
-                                        $result = mysqli_query($conn, 'SELECT * FROM factsales ORDER BY salesID ASC Limit 2000');
+                                        $result = mysqli_query($conn, 'SELECT dp.name_produk Produk, dc.CustomerID customerID, dt.fullDate date,da.country region, fs.OrderQty OrderQty, fs.UnitPrice UnitPrice,  fs.LineTotal TotalPrice FROM factsales fs JOIN dimproduct dp on fs.ProductID = dp.productID JOIN dimcustomer dc ON fs.CustomerID = dc.CustomerID JOIN dimtime dt ON fs.TimeID = dt.timeID JOIN dimaddress da ON fs.TerritoryID = da.TerritoryID ORDER BY salesID ASC Limit 2000');
                                         while ($data = mysqli_fetch_array($result)) {
                                         ?>
                                             <tr>
-                                                <td><?php echo $data['SalesID'] ?></td>
-                                                <td><?php echo $data['ProductID'] ?></td>
-                                                <td><?php echo $data['CustomerID'] ?></td>
-                                                <td><?php echo $data['TimeID'] ?></td>
+                                                <td><?php echo $data['Produk'] ?></td>
+                                                <td><?php echo $data['customerID'] ?></td>
+                                                <td><?php echo $data['date'] ?></td>
+                                                <td><?php echo $data['region'] ?></td>
                                                 <td><?php echo $data['OrderQty'] ?></td>
                                                 <td><?php echo $data['UnitPrice'] ?></td>
-                                                <td><?php echo $data['LineTotal'] ?></td>
-                                                <td><?php echo $data['TerritoryID'] ?></td>
+                                                <td><?php echo $data['TotalPrice'] ?></td>
                                             </tr>
                                         <?php
                                         }
